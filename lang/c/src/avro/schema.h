@@ -53,7 +53,7 @@ int avro_schema_record_field_append(const avro_schema_t record,
 				    const avro_schema_t type);
 size_t avro_schema_record_size(const avro_schema_t record);
 
-avro_schema_t avro_schema_enum(const char *name);
+avro_schema_t avro_schema_enum(const char *name, const char *space);
 const char *avro_schema_enum_get(const avro_schema_t enump,
 				 int index);
 int avro_schema_enum_get_by_name(const avro_schema_t enump,
@@ -61,7 +61,8 @@ int avro_schema_enum_get_by_name(const avro_schema_t enump,
 int avro_schema_enum_symbol_append(const avro_schema_t
 				   enump, const char *symbol);
 
-avro_schema_t avro_schema_fixed(const char *name, const int64_t len);
+avro_schema_t avro_schema_fixed(const char *name, const char *space,
+				const int64_t len);
 int64_t avro_schema_fixed_size(const avro_schema_t fixed);
 
 avro_schema_t avro_schema_map(const avro_schema_t values);
@@ -103,6 +104,7 @@ int avro_schema_to_specific(avro_schema_t schema, const char *prefix);
 avro_schema_t avro_schema_get_subschema(const avro_schema_t schema,
          const char *name);
 const char *avro_schema_name(const avro_schema_t schema);
+const char *avro_schema_namespace(const avro_schema_t schema);
 const char *avro_schema_type_name(const avro_schema_t schema);
 avro_schema_t avro_schema_copy(avro_schema_t schema);
 int avro_schema_equal(avro_schema_t a, avro_schema_t b);

@@ -153,7 +153,7 @@ static int test_enum(void)
 		AVRO_RUBY,
 		AVRO_JAVA
 	};
-	avro_schema_t schema = avro_schema_enum("language");
+	avro_schema_t schema = avro_schema_enum("language", NULL);
 
 	avro_schema_enum_symbol_append(schema, "C");
 	avro_schema_enum_symbol_append(schema, "C++");
@@ -183,7 +183,7 @@ static int test_enum(void)
 
 static int test_fixed(void)
 {
-	avro_schema_t schema = avro_schema_fixed("msg", 8);
+	avro_schema_t schema = avro_schema_fixed("msg", NULL, 8);
 	if (avro_schema_fixed_size(schema) != 8) {
 		fprintf(stderr, "Unexpected fixed size\n");
 		exit(EXIT_FAILURE);
